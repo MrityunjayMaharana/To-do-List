@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do</title>
+    <script src="https://kit.fontawesome.com/560ec001f7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="heading">
+        <p>Welcome! Let's turn your intentions into actions with our handy <font style="color: lightblue;">to-do list tool</font>.</p>
+    </div>
+    <div id="container">
+        <input id="input"  type="text" placeholder="Enter your task.">
+        <ul></ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#input').change(function() {
+                var input = $(this).val();
+                $('ul').append('<li>' + input + '<i class="fas fa-check"></i>'  + '<i class="fas fa-trash"></i>' +'</li>')
+                $(this).val('')
+            })
+            $('ul').on('click', '.fa-trash', function() {
+                $(this).parent('li').fadeOut(200);
+            })
+            $('ul').on('click', '.fa-check', function() {
+                $(this).parent('li').toggleClass('checked');
+            })
+        })
+    </script>
+</body>
+</html>
